@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: banking-pod
+  labels:
+    app: banking
+    team: transactions
+spec:
+  containers:
+    - name: main-app
+      image: nginx
+      ports:
+        - containerPort: 80
+    - name: log-agent
+      image: busybox
+      command: ["sh", "-c", "while true; do echo $(date): transaction processed; sleep 3; done"]

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myreplica
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      company: test
+  template:
+    metadata:
+      labels:
+        company: test
+    spec:
+      containers:
+        - name: c01
+          image: httpd
+          ports:
+            - containerPort: 80
+      nodeSelector:
+        kubernetes.io/hostname: k8s-worker-2

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-to-docker
+  labels: 
+    app: welcome-to-docker-app
+spec:
+  replicas: 15
+  selector:
+    matchLabels:
+      app: docker-app
+  template:
+    metadata:
+      labels:
+        app: docker-app
+    spec:
+      containers:
+        - name: docker-app
+          image: docker/welcome-to-docker
+          ports:
+            - containerPort: 80
