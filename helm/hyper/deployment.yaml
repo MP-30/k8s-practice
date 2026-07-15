@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper-deploy
+  namespace: hyper-dev
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hyper-scale-ops
+  template:
+    metadata:
+      labels:
+        app: hyper-scale-ops
+
+    spec:
+      containers:
+        - name: hyper-scale-ops
+          image: mp30/hyper-ops:46
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: hyper-config
+
+            - secretRef:
+                name: hyper-secret
+          ports:
+            - containerPort: 8000
+
+      
