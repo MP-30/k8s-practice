@@ -1,2 +1,3 @@
-/helm/hyper/.env
+/hyper/normal-k8s/.env
 .idea/
+/hyper/charts/hyper-scale-ops/.env

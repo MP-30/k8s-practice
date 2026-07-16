@@ -1,0 +1,10 @@
+namespace:
+  name: hyper-dev
+
+replicaCount: 1
+
+image:
+  tag: latest
+
+ingress:
+  host: dev.hyper.local

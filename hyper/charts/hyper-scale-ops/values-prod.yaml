@@ -1,0 +1,10 @@
+namespace:
+  name: hyper-prod
+
+replicaCount: 5
+
+image:
+  tag: "46"
+
+ingress:
+  host: api.hyper.com

@@ -2,19 +2,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hyper-ingress
-  namespace: hyper-dev
+  namespace: normal-k8s-dev
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-    - host: hyper.local
+    - host: normal-k8s.local
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: hyper-service
+                name: normal-k8s-service
                 port:
                   number: 80

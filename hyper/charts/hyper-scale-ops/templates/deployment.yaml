@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper-deploy
+  namespace: {{ .Values.namespace.name }}
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "hyper-scale-ops.labels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "hyper-scale-ops.labels" . | nindent 8 }}
+
+    spec:
+      containers:
+        - name: normal-k8s-scale-ops
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: hyper-config
+
+            - secretRef:
+                name: {{ .Values.secret.name }}
+          ports:
+            - containerPort: 8000
+
+      

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hyper-config
-  namespace: hyper-dev
+  namespace: normal-k8s-dev
 data:
   APP_NAME: "Hyper Scale Ops"
   APP_ENV: "development"

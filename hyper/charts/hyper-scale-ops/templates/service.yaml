@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyper-service
+  namespace: {{ .Values.namespace.name }}
+spec:
+  selector:
+    app: hyper-scale-ops
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+  type: {{ .Values.service.type }}
+  

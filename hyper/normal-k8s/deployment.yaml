@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hyper-deploy
-  namespace: hyper-dev
+  namespace: normal-k8s-dev
 
 spec:
   replicas: 1
@@ -16,7 +16,7 @@ spec:
 
     spec:
       containers:
-        - name: hyper-scale-ops
+        - name: normal-k8s-scale-ops
           image: mp30/hyper-ops:46
           imagePullPolicy: IfNotPresent
           envFrom:

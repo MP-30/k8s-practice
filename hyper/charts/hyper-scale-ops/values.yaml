@@ -1,0 +1,35 @@
+# namespace
+#namespace:
+#  name: hyper-helm
+
+# deployment
+replicaCount: 2
+
+image:
+  repository: mp30/hyper-ops
+  tag: "49"
+  pullPolicy: IfNotPresent
+
+# service
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+# configMap
+config:
+  APP_ENV: development
+  APP_NAME: Hyper Scale Ops
+  LOG_LEVEL: INFO
+
+# secrets
+secret:
+  name: hyper-secret
+
+# ingress
+ingress:
+  enabled: true
+  className: nginx
+
+  host: helm.hyper.local
+  path: /

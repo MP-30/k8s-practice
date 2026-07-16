@@ -1,0 +1,10 @@
+namespace:
+  name: hyper-test
+
+replicaCount: 2
+
+image:
+  tag: "46"
+
+ingress:
+  host: test.hyper.local
