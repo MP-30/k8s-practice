@@ -1,0 +1,7 @@
+replicaCount: 1
+
+image:
+  tag: "49"
+
+ingress:
+  host: oci.hyper.local

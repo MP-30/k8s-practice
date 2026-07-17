@@ -4,7 +4,7 @@ namespace:
 replicaCount: 1
 
 image:
-  tag: latest
+  tag: "49"
 
 ingress:
   host: dev.hyper.local

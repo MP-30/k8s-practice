@@ -4,7 +4,7 @@ namespace:
 replicaCount: 5
 
 image:
-  tag: "46"
+  tag: "49"
 
 ingress:
   host: api.hyper.com
